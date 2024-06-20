@@ -8,10 +8,17 @@ spec:
     - host: hello-world.example
       http:
         paths:
-          - path: /
+          - path: /nginx-web-app
             pathType: Prefix
             backend:
               service:
                 name: nginx
                 port:
                   number: 80
+          - path: /argocd-dashboard
+            pathType: Prefix
+            backend:
+              service:
+                 name: argocd-server
+                 port:
+                   number: 443
